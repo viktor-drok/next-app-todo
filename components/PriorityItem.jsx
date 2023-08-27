@@ -9,7 +9,7 @@ const PriorityItem = ({ priority, day }) => {
 	const modal = useTodos(state => state.modal);
 	const closeModal = useTodos(state => state.closeModal);
 	const deleteTodo = useTodos(state => state.deleteTodo);
-	const filteredByDay = todos.filter(todo => todo.day.toLowerCase() === day.toLowerCase());
+	const filteredByDay = todos?.filter(todo => todo.day?.toLowerCase() === day.toLowerCase());
 	const filteredTodos = filteredByDay.filter(todo => todo.priority.toLowerCase() === priority.toLowerCase());
 	const setDeaggedTodo = useTodos(state => state.setDraggedTodo);
 	const draggedTodo = useTodos(state => state.draggedTodo);
@@ -30,17 +30,16 @@ const PriorityItem = ({ priority, day }) => {
 			<ul
 				onDragOver={e => e.preventDefault()}
 				onDrop={() => {
-					console.log(draggedTodo, priority);
 					moveTodo(draggedTodo, priority);
 					setDeaggedTodo(null);
 				}}
 				className="text-[24px] bg-item-bg rounded-lg"
 			>
-				{filteredTodos.length !== 0 &&
+				{filteredTodos.length !== 0 ? (
 					filteredTodos.map(todo => (
 						<li
 							onDragStart={() => {
-								setDeaggedTodo(todo.title, priority);
+								setDeaggedTodo(todo.title);
 							}}
 							draggable
 							key={todo.id}
@@ -54,7 +53,10 @@ const PriorityItem = ({ priority, day }) => {
 								<FaTrashAlt />
 							</div>
 						</li>
-					))}
+					))
+				) : (
+					<div className="flex justify-between items-center p-2">No ToDos</div>
+				)}
 			</ul>
 			{modal && (
 				<div
