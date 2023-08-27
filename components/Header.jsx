@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
 	return (
@@ -9,7 +10,9 @@ const Header = () => {
 				width={72}
 				height={60}
 			/>
-			<h1>YourTodo</h1>
+			<Link href="/">
+				<h1>YourTodo</h1>
+			</Link>
 		</header>
 	);
 };

@@ -26,6 +26,7 @@ module.exports = {
       "save-bg": "var(--save-bg)",
       "done-bg": "var(--done-bg)",
       "delete-bg": "var(--delete-bg)",
+      "newItem-bg": "var(--newItem-bg)",
     }
   },
   plugins: [],

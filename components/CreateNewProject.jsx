@@ -3,7 +3,7 @@ import CustomButton from "./CustomButton";
 const CreateNewProject = () => {
 	return (
 		<>
-			<CustomButton>New Project</CustomButton>
+			<CustomButton className="bg-[#d1c69eb2] text-[#ffffff]">New Project</CustomButton>
 		</>
 	);
 };

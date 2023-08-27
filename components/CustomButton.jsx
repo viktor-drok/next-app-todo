@@ -1,4 +1,10 @@
-const CustomButton = ({ children }) => {
-	return <button className="flex justify-center items-center w-[254px] h-[50px] text-[22px]">{children}</button>;
+const CustomButton = ({ children, className = "" }) => {
+	return (
+		<div
+			className={`${className} flex justify-center items-center h-[50px] text-[22px] border-none rounded-[8px] w-[254px] cursor-pointer`}
+		>
+			{children}
+		</div>
+	);
 };
 export default CustomButton;

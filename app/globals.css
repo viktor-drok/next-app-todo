@@ -10,11 +10,12 @@
     --medPrior-bg: #FFB760;
     --lowPrior-bg: #FFD8A9;
     --footer-bg: #FFE1BD;
-    --item-bg: #FEFFDF;
+    --item-bg: #feffdf;
     --aside-bg: #FFFBEF;
     --details-bg: #FFd7a7;
     --save-bg: #7FDB88;
     --done-bg: #7E8BF9;
     --delete-bg: #FF5757;
+    --newItem-bg: #F8CA94;
   }
 }

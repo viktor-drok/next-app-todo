@@ -13,8 +13,10 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={josefineSans.className}>
-				<Header />
-				{children}
+				<div className="flex flex-col h-full">
+					<Header />
+					{children}
+				</div>
 			</body>
 		</html>
 	);

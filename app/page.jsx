@@ -2,9 +2,9 @@ import SideBar from "@/components/SideBar";
 
 export default function Home() {
 	return (
-		<main className="flex h-full bg-save-bg grow-1">
+		<main className="flex bg-main-bg grow">
 			<SideBar />
-			<div className="grow-1">ToDo List</div>
+			<div className="text-center text-[32px] pt-[23px] font-bold w-full">Select a day to get started...</div>
 		</main>
 	);
 }
