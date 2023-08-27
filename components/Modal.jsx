@@ -11,6 +11,7 @@ const Modal = () => {
 
 	const [title, setTitle] = useState("");
 	const [priority, setPriority] = useState("high");
+	const [optionDay, setOptionDay] = useState("Sunday");
 
 	const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -60,11 +61,14 @@ const Modal = () => {
 
 					<select
 						className="w-full rounded-lg p-1"
-						onChange={e => setDay(e.target.value)}
+						onChange={e => {
+							setOptionDay(e.target.value);
+							setDay(e.target.value);
+						}}
 						name="day"
 						type="text"
 						required
-						value="Monday"
+						value={optionDay}
 					>
 						{daysOfWeek.map((day, index) => (
 							<option
