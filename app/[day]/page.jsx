@@ -4,8 +4,6 @@ import dynamic from "next/dynamic";
 
 const PriorityItem = dynamic(() => import("@/components/PriorityItem"), { ssr: false });
 
-// import AddNewItem from "@/components/AddNewItem";
-
 const Page = ({ params }) => {
 	const priority = ["High", "Medium", "Low"];
 
@@ -13,8 +11,6 @@ const Page = ({ params }) => {
 		<div className="w-full bg-main-bg px-7">
 			<div className="flex flex-col">
 				<h2 className="first-letter:uppercase text-[32px] text-center font-bold py-10">{params.day}</h2>
-
-				{/* <AddNewItem /> */}
 
 				<div className="flex flex-col items-center gap-9 my-7">
 					{priority.map(item => {

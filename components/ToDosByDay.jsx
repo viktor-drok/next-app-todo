@@ -21,7 +21,7 @@ const ToDosByDay = () => {
 				>
 					<CustomButton className="bg-details-bg felx justify-between px-4">
 						{day}
-						{/* <span>{todos.filter(todo => todo.day.toLowerCase() === day.toLowerCase()).length}</span> */}
+						<span>{todos.filter(todo => todo.day.toLowerCase() === day.toLowerCase()).length}</span>
 					</CustomButton>
 				</Link>
 			))}
