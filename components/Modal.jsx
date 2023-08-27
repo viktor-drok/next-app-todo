@@ -52,7 +52,7 @@ const Modal = () => {
 
 				<button
 					disabled={title.trim() === "" ? true : false}
-					className="bg-save-bg rounded-lg p-1 text-white my-5"
+					className="bg-save-bg rounded-lg p-1 text-white my-5 disabled:bg-delete-bg"
 					type="submit"
 					onClick={handleSubmit}
 				>

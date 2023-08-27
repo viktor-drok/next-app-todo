@@ -8,6 +8,13 @@ const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frid
 const store = (set) => ({
   todos: [],
   modal: false,
+  draggedTodo: null,
+  moveTodo: (draggedTodo, priority) => {
+    set(state => ({
+      todos: [...state.todos.filter(todo => todo.title !== draggedTodo), { id: nanoid(), title: draggedTodo, priority, day: dayOfWeek[new Date(Date.now()).getDay()], completed: false, stored: new Date(Date.now()).toLocaleString() }]
+    }));
+  },
+  setDraggedTodo: (title, priority) => set({ draggedTodo: title, priority: priority }),
   addTodo: (title, priority) => {
     if (title.length < 1 || title.length > 50) {
       return toast("Title must be between 1 and 50 characters");

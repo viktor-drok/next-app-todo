@@ -1,7 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
+
+const CustomButton = dynamic(() => import("./CustomButton"), { ssr: false });
+
 import Link from "next/link";
-import CustomButton from "./CustomButton";
 import { useTodos } from "@/state/todos";
 
 const ToDosByDay = () => {
@@ -18,8 +21,7 @@ const ToDosByDay = () => {
 				>
 					<CustomButton className="bg-details-bg felx justify-between px-4">
 						{day}
-
-						<span>{todos.filter(todo => todo.day.toLowerCase() === day.toLowerCase()).length}</span>
+						{/* <span>{todos.filter(todo => todo.day.toLowerCase() === day.toLowerCase()).length}</span> */}
 					</CustomButton>
 				</Link>
 			))}
