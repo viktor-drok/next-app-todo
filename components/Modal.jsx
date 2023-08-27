@@ -64,6 +64,7 @@ const Modal = () => {
 						name="day"
 						type="text"
 						required
+						value="Monday"
 					>
 						{daysOfWeek.map((day, index) => (
 							<option
