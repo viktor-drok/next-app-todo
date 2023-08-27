@@ -9,8 +9,8 @@ const PriorityItem = ({ priority, day }) => {
 	const modal = useTodos(state => state.modal);
 	const closeModal = useTodos(state => state.closeModal);
 	const deleteTodo = useTodos(state => state.deleteTodo);
-	const filteredByDay = todos?.filter(todo => todo.day?.toLowerCase() === day.toLowerCase());
-	const filteredTodos = filteredByDay.filter(todo => todo.priority.toLowerCase() === priority.toLowerCase());
+	const filteredByDay = todos?.filter(todo => todo.day?.toLowerCase() === day?.toLowerCase());
+	const filteredTodos = filteredByDay.filter(todo => todo.priority?.toLowerCase() === priority?.toLowerCase());
 	const setDeaggedTodo = useTodos(state => state.setDraggedTodo);
 	const draggedTodo = useTodos(state => state.draggedTodo);
 	const moveTodo = useTodos(state => state.moveTodo);
@@ -20,9 +20,9 @@ const PriorityItem = ({ priority, day }) => {
 		<div
 			className={`text-center text-[26px] font-semibold leading-normal 
 			${
-				priority.toLowerCase() === "high"
+				priority?.toLowerCase() === "high"
 					? "bg-highPrior-bg"
-					: priority.toLowerCase() === "medium"
+					: priority?.toLowerCase() === "medium"
 					? "bg-medPrior-bg"
 					: "bg-lowPrior-bg"
 			} w-full rounded-lg p-1`}
