@@ -6,13 +6,18 @@ import { useState } from "react";
 const Modal = () => {
 	const addTodo = useTodos(state => state.addTodo);
 	const closeModal = useTodos(state => state.closeModal);
+	const day = useTodos(state => state.day);
+	const setDay = useTodos(state => state.setDay);
 
 	const [title, setTitle] = useState("");
 	const [priority, setPriority] = useState("high");
 
+	const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 	const handleSubmit = e => {
 		e.preventDefault();
-		addTodo(title, priority);
+		addTodo(title, priority, day);
+		setDay(null);
 		closeModal();
 		setTitle("");
 	};
@@ -22,7 +27,7 @@ const Modal = () => {
 			className="absolute z-10 bg-details-bg rounded-lg w-[50%] h-[50%] p-4"
 		>
 			<h3>Details</h3>
-			<form className="flex flex-col gap-2">
+			<form className="flex flex-col gap-4">
 				<label className="text-start">
 					<span className="text-start">Enter Title</span>
 					<input
@@ -47,6 +52,27 @@ const Modal = () => {
 						<option value="high">High Priority</option>
 						<option value="medium">Medium Priority</option>
 						<option value="low">Low Priority</option>
+					</select>
+				</label>
+
+				<label className="text-start">
+					<span>Select Day</span>
+
+					<select
+						className="w-full rounded-lg p-1"
+						onChange={e => setDay(e.target.value)}
+						name="day"
+						type="text"
+						required
+					>
+						{daysOfWeek.map((day, index) => (
+							<option
+								key={index}
+								value={day}
+							>
+								{day}
+							</option>
+						))}
 					</select>
 				</label>
 

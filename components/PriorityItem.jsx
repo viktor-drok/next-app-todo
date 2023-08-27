@@ -14,6 +14,7 @@ const PriorityItem = ({ priority, day }) => {
 	const setDeaggedTodo = useTodos(state => state.setDraggedTodo);
 	const draggedTodo = useTodos(state => state.draggedTodo);
 	const moveTodo = useTodos(state => state.moveTodo);
+	const setDay = useTodos(state => state.setDay);
 
 	return (
 		<div
@@ -30,8 +31,9 @@ const PriorityItem = ({ priority, day }) => {
 			<ul
 				onDragOver={e => e.preventDefault()}
 				onDrop={() => {
-					moveTodo(draggedTodo, priority);
+					moveTodo(draggedTodo, priority, day);
 					setDeaggedTodo(null);
+					setDay(null);
 				}}
 				className="text-[24px] bg-item-bg rounded-lg"
 			>
@@ -39,6 +41,7 @@ const PriorityItem = ({ priority, day }) => {
 					filteredTodos.map(todo => (
 						<li
 							onDragStart={() => {
+								setDay(todo.day);
 								setDeaggedTodo(todo.title);
 							}}
 							draggable

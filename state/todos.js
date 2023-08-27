@@ -17,21 +17,24 @@ const store = (set) => ({
   todos: [],
   modal: false,
   draggedTodo: null,
+  day: "",
 
-  moveTodo: (draggedTodo, priority) => {
+  moveTodo: (draggedTodo, priority, day) => {
     set(state => ({
-      todos: [...state.todos.filter(todo => todo.title !== draggedTodo), { id: nanoid(), title: draggedTodo, priority, day: getDayOfWeek(), completed: false, stored: whenStoredTodo() }]
+      todos: [...state.todos.filter(todo => todo.title !== draggedTodo), { id: nanoid(), title: draggedTodo, priority, day, completed: false, stored: whenStoredTodo() }]
     }));
   },
 
   setDraggedTodo: (title) => set({ draggedTodo: title }),
 
-  addTodo: (title, priority) => {
+  setDay: (title) => set({ day: title }),
+
+  addTodo: (title, priority, day) => {
     if (title.length < 1 || title.length > 50) {
       return toast("Title must be between 1 and 50 characters");
     }
     set(state => ({
-      todos: [...state.todos, { id: nanoid(), title: title.trim(), priority, day: getDayOfWeek(), completed: false, stored: whenStoredTodo() }]
+      todos: [...state.todos, { id: nanoid(), title: title.trim(), priority, day, completed: false, stored: whenStoredTodo() }]
     }));
   },
 
