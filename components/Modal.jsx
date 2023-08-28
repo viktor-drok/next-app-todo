@@ -11,7 +11,7 @@ const Modal = () => {
 
 	const [title, setTitle] = useState("");
 	const [priority, setPriority] = useState("high");
-	const [optionDay, setOptionDay] = useState("Sunday");
+	const [optionDay, setOptionDay] = useState("");
 
 	const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -33,6 +33,7 @@ const Modal = () => {
 					<span className="text-start">Enter Title</span>
 					<input
 						className="w-full rounded-lg p-1"
+						autoFocus
 						type="text"
 						value={title}
 						onChange={e => setTitle(e.target.value)}
@@ -82,7 +83,7 @@ const Modal = () => {
 				</label>
 
 				<button
-					disabled={title.trim() === "" ? true : false}
+					disabled={title.trim() === "" || optionDay === "" ? true : false}
 					className="bg-save-bg rounded-lg p-1 text-white my-5 disabled:bg-delete-bg"
 					type="submit"
 					onClick={handleSubmit}

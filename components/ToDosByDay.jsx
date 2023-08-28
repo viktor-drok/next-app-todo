@@ -19,7 +19,7 @@ const ToDosByDay = () => {
 					href={`/${day.toLowerCase()}`}
 					key={day}
 				>
-					<CustomButton className="bg-details-bg felx justify-between px-4">
+					<CustomButton className="bg-gradient-to-r from-[#7FDB88] from-0% to-[#FFD7A7] to-0% flex justify-between px-4">
 						{day}
 						<span>{todos.filter(todo => todo.day?.toLowerCase() === day?.toLowerCase()).length}</span>
 					</CustomButton>
