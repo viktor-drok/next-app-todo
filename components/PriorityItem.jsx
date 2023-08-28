@@ -12,7 +12,7 @@ const PriorityItem = ({ priority, day }) => {
 	const deleteTodo = useTodos(state => state.deleteTodo);
 	const filteredByDay = todos?.filter(todo => todo.day?.toLowerCase() === day?.toLowerCase());
 	const filteredTodos = filteredByDay.filter(todo => todo.priority?.toLowerCase() === priority?.toLowerCase());
-	const setDeaggedTodo = useTodos(state => state.setDraggedTodo);
+	const setDraggedTodo = useTodos(state => state.setDraggedTodo);
 	const draggedTodo = useTodos(state => state.draggedTodo);
 	const moveTodo = useTodos(state => state.moveTodo);
 	const setDay = useTodos(state => state.setDay);
@@ -36,7 +36,7 @@ const PriorityItem = ({ priority, day }) => {
 				onDragOver={e => e.preventDefault()}
 				onDrop={() => {
 					moveTodo(draggedTodo, priority, day);
-					setDeaggedTodo(null);
+					setDraggedTodo(null);
 					setDay(null);
 				}}
 			>
@@ -48,7 +48,7 @@ const PriorityItem = ({ priority, day }) => {
 							}`}
 							onDragStart={() => {
 								setDay(todo.day);
-								setDeaggedTodo(todo.title);
+								setDraggedTodo(todo.title);
 								setIsCompleted(todo.completed);
 							}}
 							draggable
