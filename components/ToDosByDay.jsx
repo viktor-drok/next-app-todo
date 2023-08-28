@@ -10,6 +10,8 @@ import { useTodos } from "@/state/todos";
 const ToDosByDay = () => {
 	const todos = useTodos(state => state.todos);
 
+	const filteredByDay = day => todos?.filter(todo => todo.day?.toLowerCase() === day?.toLowerCase());
+
 	const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 	return (
@@ -19,9 +21,12 @@ const ToDosByDay = () => {
 					href={`/${day.toLowerCase()}`}
 					key={day}
 				>
-					<CustomButton className="bg-gradient-to-r from-[#7FDB88] from-0% to-[#FFD7A7] to-0% flex justify-between px-4">
+					<CustomButton
+						className="bg-gradient-to-r from-[#7FDB88] 
+						from-0% to-[#FFD7A7] to-0% flex justify-between px-4"
+					>
 						{day}
-						<span>{todos.filter(todo => todo.day?.toLowerCase() === day?.toLowerCase()).length}</span>
+						<span>{filteredByDay(day).length}</span>
 					</CustomButton>
 				</Link>
 			))}
