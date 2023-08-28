@@ -24,6 +24,7 @@ module.exports = {
       "aside-bg": "var(--aside-bg)",
       "details-bg": "var(--details-bg)",
       "save-bg": "var(--save-bg)",
+      "completed-bg": "var(--completed-bg)",
       "done-bg": "var(--done-bg)",
       "delete-bg": "var(--delete-bg)",
       "newItem-bg": "var(--newItem-bg)",

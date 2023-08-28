@@ -1,6 +1,7 @@
 "use client";
 
 import { FaTrashAlt } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 import Modal from "./Modal";
 import { useTodos } from "@/state/todos";
 
@@ -15,6 +16,8 @@ const PriorityItem = ({ priority, day }) => {
 	const draggedTodo = useTodos(state => state.draggedTodo);
 	const moveTodo = useTodos(state => state.moveTodo);
 	const setDay = useTodos(state => state.setDay);
+	const toggleCompleted = useTodos(state => state.toggleCompleted);
+	const setIsCompleted = useTodos(state => state.setIsCompleted);
 
 	return (
 		<div
@@ -29,31 +32,32 @@ const PriorityItem = ({ priority, day }) => {
 		>
 			<h3>{priority} Priority Item</h3>
 			<ul
+				className="text-[24px] bg-item-bg rounded-lg"
 				onDragOver={e => e.preventDefault()}
 				onDrop={() => {
 					moveTodo(draggedTodo, priority, day);
 					setDeaggedTodo(null);
 					setDay(null);
 				}}
-				className="text-[24px] bg-item-bg rounded-lg"
 			>
 				{filteredTodos.length !== 0 ? (
 					filteredTodos.map(todo => (
 						<li
+							className={`flex justify-between items-center p-2 cursor-move rounded-lg ${
+								todo.completed ? "bg-completed-bg" : null
+							}`}
 							onDragStart={() => {
 								setDay(todo.day);
 								setDeaggedTodo(todo.title);
+								setIsCompleted(todo.completed);
 							}}
 							draggable
 							key={todo.id}
-							className="flex justify-between items-center p-2 cursor-move"
 						>
 							<h5>{todo.title}</h5>
-							<div
-								className="cursor-pointer"
-								onClick={() => deleteTodo(todo.id)}
-							>
-								<FaTrashAlt />
+							<div className="flex gap-6 cursor-pointer">
+								<FaCheck onClick={() => toggleCompleted(todo.title)} />
+								<FaTrashAlt onClick={() => deleteTodo(todo.id)} />
 							</div>
 						</li>
 					))

@@ -18,10 +18,24 @@ const store = (set) => ({
   modal: false,
   draggedTodo: null,
   day: "",
+  isCompleted: null,
+
+  toggleCompleted: (title) => {
+    set(state => ({
+      todos: state.todos.map(todo => {
+        if (todo.title === title) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      })
+    }));
+  },
+
+  setIsCompleted: (copleted) => set({ isCompleted: copleted }),
 
   moveTodo: (draggedTodo, priority, day) => {
     set(state => ({
-      todos: [...state.todos.filter(todo => todo.title !== draggedTodo), { id: nanoid(), title: draggedTodo, priority, day, completed: false, stored: whenStoredTodo() }]
+      todos: [...state.todos.filter(todo => todo.title !== draggedTodo), { id: nanoid(), title: draggedTodo, priority, day, completed: state.isCompleted, stored: whenStoredTodo() }]
     }));
   },
 
