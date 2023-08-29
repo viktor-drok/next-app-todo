@@ -23,8 +23,6 @@ const ToDosByDay = () => {
 		return gradient;
 	};
 
-	//     `bg-gradient-to-r from-[#7FDB88] from-30% to-[#FFD7A7] to-30% flex justify-between px-4`
-
 	const dayOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 	return (
@@ -39,7 +37,6 @@ const ToDosByDay = () => {
 							background: `linear-gradient(90deg, rgba(127, 219, 136, 1) ${styleButton(
 								day,
 							)}%, rgba(255, 215, 167, 1) ${styleButton(day)}%)`,
-							// transition: "all 0.5s ease-in-out",
 						}}
 						className="justify-between px-4 bg-details-bg transition-all"
 						onDragEnter={e => {
@@ -58,7 +55,6 @@ const ToDosByDay = () => {
 								}%`}
 							</span>
 						</div>
-						{/* {styleButton(day)} */}
 					</CustomButton>
 				</Link>
 			))}
@@ -66,6 +62,3 @@ const ToDosByDay = () => {
 	);
 };
 export default ToDosByDay;
-// filteredByDay(day).length - 100%     ["5454%"]
-// filteredByDayAndCompleted(day).length - x
-//           ${(Math.ceil((filteredByDayAndCompleted(day).length * 100) / filteredByDay(day).length)).toString() + "%"}

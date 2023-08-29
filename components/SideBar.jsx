@@ -1,4 +1,3 @@
-// import CreateNewProject from "./CreateNewProject";
 import AddNewItem from "./AddNewItem";
 import ToDosByDay from "./ToDosByDay";
 
