@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 
 export default function DayLayout({ children }) {
 	return (
-		<main className="flex h-full">
+		<main className="flex h-full grow">
 			<SideBar />
 			{children}
 			<ToastContainer

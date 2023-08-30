@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={josefineSans.className}>
-				<div className="flex flex-col h-screen">
+				<div className="flex flex-col min-h-screen">
 					<Header />
 					{children}
 					<Footer />

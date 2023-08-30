@@ -28,7 +28,7 @@ const PriorityItem = ({ priority, day }) => {
 					: priority?.toLowerCase() === "medium"
 					? "bg-medPrior-bg"
 					: "bg-lowPrior-bg"
-			} w-full rounded-lg p-1`}
+			} w-full rounded-lg p-1 mb-1`}
 		>
 			<h3>{priority} Priority Item</h3>
 			<ul
